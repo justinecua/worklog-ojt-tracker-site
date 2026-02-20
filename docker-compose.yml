@@ -1,12 +1,7 @@
 services:
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: worklog-frontend
     ports:
-      - "5173:5173"
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - "8080:80"
     restart: unless-stopped
