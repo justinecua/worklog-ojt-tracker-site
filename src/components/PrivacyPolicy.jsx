@@ -23,7 +23,8 @@ export default function PrivacyPolicy() {
             {APP_NAME} is designed to function fully offline. The App does not
             collect, transmit, or share personal data with the developer or any
             third party. All information entered in the App remains only on the
-            user’s device.
+            user’s device. The App does not collect any personal or sensitive
+            user data as defined by Google Play’s Data Safety requirements.
           </p>
 
           {/* Local storage */}
@@ -73,8 +74,8 @@ export default function PrivacyPolicy() {
             Children’s Privacy
           </h3>
           <p className="text-sm text-gray-700">
-            Worklog is not intended for children under the age of 13 and does
-            not knowingly collect personal information from children.
+            The App does not knowingly collect personal information from anyone,
+            including children.
           </p>
 
           {/* Changes */}

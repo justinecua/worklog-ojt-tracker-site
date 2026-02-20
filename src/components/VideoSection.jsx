@@ -13,7 +13,7 @@ export default function VideoSection() {
   };
 
   return (
-    <section className="border-t border-gray-200 bg-white">
+    <section id="video" className="border-t border-gray-200 bg-white">
       <div className="mx-auto max-w-6xl px-5 py-16">
         <SectionTitle
           kicker="See it in action"

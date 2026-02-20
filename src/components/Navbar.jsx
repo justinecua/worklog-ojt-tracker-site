@@ -41,12 +41,12 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            to="/privacy"
+          <HashLink
+            to="/#video"
             className="hidden rounded-xl bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm hover:opacity-90 md:inline-flex"
           >
-            View Privacy Policy
-          </Link>
+            Watch Quick Demo
+          </HashLink>
         </div>
       </div>
     </header>
