@@ -9,7 +9,7 @@ export default defineConfig({
     port: 5173,
     allowedHosts: ["worklogtracker.site"],
   },
-  plugins: [react(), tailwindcss()],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
