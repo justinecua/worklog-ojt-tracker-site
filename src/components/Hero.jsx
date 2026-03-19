@@ -23,11 +23,11 @@ export default function Hero() {
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#download-note"
+              href="https://play.google.com/store/apps/details?id=com.justinecua.worklog&hl=en"
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#5D57AC] px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-[#4a4494]"
             >
               <Smartphone className="h-5 w-5" />
-              Android (Coming Soon)
+              Android
             </a>
 
             <a
