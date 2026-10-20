@@ -2,34 +2,29 @@ import { APP_NAME, CONTACT_EMAIL } from "../constants/app";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 
+const linkClass = "font-semibold text-muted transition hover:text-brand";
+
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-white">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-10 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-gray-600">
-          © {new Date().getFullYear()} {APP_NAME}. All rights reserved.
-        </p>
-
-        <div className="flex gap-4 text-sm">
-          <HashLink
-            smooth
-            to="/#features"
-            className="text-gray-600 hover:text-gray-900"
-          >
+    <footer className="mx-auto max-w-6xl px-4 pb-10">
+      <div className="flex flex-col items-center gap-4 border-t border-brand-100 pt-8 text-center">
+        <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+          <HashLink smooth to="/#features" className={linkClass}>
             Features
           </HashLink>
-
-          <Link to="/privacy" className="text-gray-600 hover:text-gray-900">
+          <HashLink smooth to="/#faq" className={linkClass}>
+            FAQ
+          </HashLink>
+          <Link to="/privacy" className={linkClass}>
             Privacy Policy
           </Link>
-
-          <a
-            className="text-gray-600 hover:text-gray-900"
-            href={`mailto:${CONTACT_EMAIL}`}
-          >
+          <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass}>
             Contact
           </a>
-        </div>
+        </nav>
+        <p className="text-xs tracking-[0.03em] text-muted/70">
+          © {new Date().getFullYear()} {APP_NAME}. All rights reserved.
+        </p>
       </div>
     </footer>
   );

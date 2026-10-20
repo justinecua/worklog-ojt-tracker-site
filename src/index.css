@@ -1,5 +1,77 @@
 @import "tailwindcss";
 
+/* Mirrors the Worklog app's themes (Worklog/src/constants/colors.js) */
 @theme {
-  --color-brand: #5e5bce;
+  --color-brand: #5c55ab;
+  --color-brand-dark: #4d4796;
+  --color-brand-50: #f6f5ff;
+  --color-brand-100: #f0eeff;
+  --color-ink: #1a1a2e;
+  --color-muted: #6b7280;
+  --color-canvas: #f5f7f9;
+  --color-surface: #ffffff;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-cta-from: #6a63bd;
+  --color-cta-to: #4d4796;
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --shadow-card: 0 2px 12px rgb(92 85 171 / 0.06);
+}
+
+/* Like the app, follow the device's setting unless the visitor picked a
+   theme with the toggle (stored as data-theme on <html>). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-brand: #8b7cff;
+    --color-brand-dark: #7a6bf0;
+    --color-brand-50: #2a2940;
+    --color-brand-100: #2a2a2e;
+    --color-ink: #f3f3f3;
+    --color-muted: #a1a1aa;
+    --color-canvas: #141414;
+    --color-surface: #1c1c1c;
+    --color-cta-from: #4f45b8;
+    --color-cta-to: #2b2670;
+    --shadow-card: none;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-brand: #8b7cff;
+  --color-brand-dark: #7a6bf0;
+  --color-brand-50: #2a2940;
+  --color-brand-100: #2a2a2e;
+  --color-ink: #f3f3f3;
+  --color-muted: #a1a1aa;
+  --color-canvas: #141414;
+  --color-surface: #1c1c1c;
+  --color-cta-from: #4f45b8;
+  --color-cta-to: #2b2670;
+  --shadow-card: none;
+  color-scheme: dark;
+}
+
+body {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
 }
