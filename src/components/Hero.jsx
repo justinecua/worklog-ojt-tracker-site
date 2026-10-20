@@ -1,64 +1,93 @@
-import Badge from "./Badge";
-import { Apple, Smartphone } from "lucide-react";
-import phone from "../assets/hero4.png";
+import { Moon, PenLine, Sun } from "lucide-react";
+import PhoneFrame from "./PhoneFrame";
+import StoreButtons from "./StoreButtons";
+import homeLight from "../assets/app-home-light.jpg";
+import homeDark from "../assets/app-home-dark.jpg";
+
+const facts = [
+  ["0", "Accounts", "text-brand"],
+  ["0", "Ads", "text-success"],
+  ["100%", "Offline", "text-danger"],
+];
+
+const phones = [
+  {
+    src: homeLight,
+    alt: "Worklog home screen in light mode showing OJT progress, calendar, and Quick Log",
+    label: "Light mode",
+    icon: Sun,
+    offset: "",
+  },
+  {
+    src: homeDark,
+    alt: "Worklog home screen in dark mode",
+    label: "Dark mode",
+    icon: Moon,
+    offset: "mt-10 sm:mt-16",
+  },
+];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-[#f5f4ff]">
-      <div className="relative mx-auto flex min-h-[50vh] max-w-7xl items-center px-5">
-        <div className="max-w-xl z-10">
-          <div className="flex flex-wrap gap-2">
-            <Badge>OJT hour logging</Badge>
-            <Badge>Progress tracking</Badge>
-            <Badge>Offline</Badge>
-          </div>
-
-          <h1 className="mt-5 text-4xl font-bold tracking-tight text-[#5D57AC] sm:text-5xl">
-            Track your internship hours without stress.
-          </h1>
-
-          <p className="mt-4 text-base leading-7 text-gray-600 sm:text-lg">
-            Know what you’ve completed and what’s left at a glance.
-          </p>
-
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.justinecua.worklog&hl=en"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#5D57AC] px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-[#4a4494]"
-            >
-              <Smartphone className="h-5 w-5" />
-              Android
-            </a>
-
-            <a
-              href="#download-note"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#5D57AC] bg-white px-6 py-3 text-sm font-semibold text-[#5D57AC] shadow-sm transition hover:bg-[#f3f2ff]"
-            >
-              <Apple className="h-5 w-5" />
-              iOS (Coming Soon)
-            </a>
-          </div>
-        </div>
+    <section className="mx-auto max-w-6xl px-4 pt-14 text-center sm:pt-20">
+      {/* Mirrors the app's welcome card */}
+      <div className="inline-flex items-center gap-3 rounded-[14px] border border-brand-100 bg-surface py-1.5 pl-1.5 pr-4 shadow-card">
+        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-brand px-3 py-1.5 text-xs font-bold text-white">
+          <PenLine className="h-3.5 w-3.5" />
+          Quick Log
+        </span>
+        <span className="text-sm italic text-muted">
+          &ldquo;Champions track their progress&rdquo;
+        </span>
       </div>
 
-      {/* ABSOLUTE PHONE */}
-      <img
-        src={phone}
-        alt="Worklog app preview"
-        className="
-      hidden md:block
-      absolute
-      right-0
-      bottom-0
-      w-[700px]
-      lg:w-[900px]
-      xl:w-[1100px]
-      2xl:w-[1250px]
-      translate-x-20
-      translate-y-30
-      drop-shadow-2xl
-    "
-      />
+      <h1 className="mx-auto mt-8 max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+        Your OJT hours,{" "}
+        <span className="text-brand sm:block">counted for you.</span>
+      </h1>
+
+      <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-muted sm:text-lg">
+        Log your time-in and time-out, see what&apos;s left and when you&apos;ll
+        finish, then export a Daily Time Record ready to submit.
+      </p>
+
+      <StoreButtons className="mt-8 justify-center" />
+
+      <dl className="mx-auto mt-8 grid max-w-sm grid-cols-3 gap-3">
+        {facts.map(([value, label, color]) => (
+          <div
+            key={label}
+            className="flex flex-col items-center gap-0.5 rounded-xl border border-brand-100 bg-surface py-3"
+          >
+            <dt className="order-2 text-[10px] font-medium uppercase tracking-[0.03em] text-muted">
+              {label}
+            </dt>
+            <dd className={`text-xl font-extrabold ${color}`}>{value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      {/* Real app screenshots, light and dark */}
+      <div className="relative mx-auto mt-16 max-w-3xl">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-8 bottom-10 top-1/4 -z-10 rounded-[3rem] bg-brand/20 blur-3xl"
+        />
+        <div className="flex items-start justify-center gap-4 sm:gap-10">
+          {phones.map(({ src, alt, label, icon, offset }) => {
+            const Icon = icon;
+            return (
+              <figure key={label} className={`w-[46%] max-w-[300px] ${offset}`}>
+                <PhoneFrame src={src} alt={alt} />
+                <figcaption className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-muted">
+                  <Icon className="h-3.5 w-3.5" />
+                  {label}
+                </figcaption>
+              </figure>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }

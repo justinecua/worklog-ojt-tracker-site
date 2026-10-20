@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 export default function Privacy() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
+    <div className="min-h-screen">
       <Navbar />
       <main>
         <PrivacyPolicy />
