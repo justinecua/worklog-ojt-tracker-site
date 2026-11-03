@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "Is Worklog available on iPhone?",
-    a: "The iOS version is coming soon. Worklog is currently available for Android on Google Play.",
+    a: "Yes. Worklog is available on the App Store for iPhone and on Google Play for Android.",
   },
 ];
 
