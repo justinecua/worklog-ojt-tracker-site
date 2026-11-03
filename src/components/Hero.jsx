@@ -1,4 +1,4 @@
-import { Moon, PenLine, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import PhoneFrame from "./PhoneFrame";
 import StoreButtons from "./StoreButtons";
 import homeLight from "../assets/app-home-light.jpg";
@@ -30,18 +30,7 @@ const phones = [
 export default function Hero() {
   return (
     <section className="mx-auto max-w-6xl px-4 pt-14 text-center sm:pt-20">
-      {/* Mirrors the app's welcome card */}
-      <div className="inline-flex items-center gap-3 rounded-[14px] border border-brand-100 bg-surface py-1.5 pl-1.5 pr-4 shadow-card">
-        <span className="inline-flex items-center gap-1.5 rounded-[10px] bg-brand px-3 py-1.5 text-xs font-bold text-white">
-          <PenLine className="h-3.5 w-3.5" />
-          Quick Log
-        </span>
-        <span className="text-sm italic text-muted">
-          &ldquo;Champions track their progress&rdquo;
-        </span>
-      </div>
-
-      <h1 className="mx-auto mt-8 max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+      <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl">
         Your OJT hours,{" "}
         <span className="text-brand sm:block">counted for you.</span>
       </h1>
