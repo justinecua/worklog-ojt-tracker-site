@@ -3,10 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Worklog is an offline OJT hours tracker. Log time-in and time-out, see your remaining hours and projected finish date, and export a PDF Daily Time Record."
-    />
+    <meta name="description" content="Track your OJT hours offline. Log time-in and time-out, see your remaining hours and projected finish date, and export a PDF Daily Time Record (DTR)." />
+    <link rel="canonical" href="https://worklogtracker.site/" />
+
+    <!-- Link previews (Facebook, Messenger, X, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Worklog" />
+    <meta property="og:url" content="https://worklogtracker.site/" />
+    <meta property="og:title" content="Worklog – OJT Hours Tracker &amp; DTR App for iPhone and Android" />
+    <meta property="og:description" content="Track your OJT hours offline. Log time-in and time-out, see your remaining hours and projected finish date, and export a PDF Daily Time Record (DTR)." />
+    <meta property="og:image" content="https://worklogtracker.site/icon-512.png" />
+    <meta name="twitter:card" content="summary" />
     <meta name="theme-color" content="#5c55ab" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -19,7 +26,34 @@
       rel="stylesheet"
     />
 
-    <title>Worklog – OJT Progress Tracker</title>
+    <title>Worklog – OJT Hours Tracker &amp; DTR App for iPhone and Android</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "name": "Worklog",
+            "alternateName": "Worklog – OJT Progress Tracker",
+            "url": "https://worklogtracker.site/"
+          },
+          {
+            "@type": "MobileApplication",
+            "name": "Worklog – OJT Progress Tracker",
+            "operatingSystem": "iOS, Android",
+            "applicationCategory": "BusinessApplication",
+            "description": "Track your OJT hours offline. Log time-in and time-out, see your remaining hours and projected finish date, and export a PDF Daily Time Record (DTR).",
+            "url": "https://worklogtracker.site/",
+            "image": "https://worklogtracker.site/icon-512.png",
+            "sameAs": [
+              "https://apps.apple.com/us/app/worklog-ojt-progress-tracker/id6824965877",
+              "https://play.google.com/store/apps/details?id=com.justinecua.worklog"
+            ]
+          }
+        ]
+      }
+    </script>
 
     <!-- Apply the saved theme before first paint to avoid a flash. -->
     <script>
