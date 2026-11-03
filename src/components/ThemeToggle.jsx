@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 
 const STORAGE_KEY = "worklog-theme";
 const darkQuery = "(prefers-color-scheme: dark)";
+const CHANGE_EVENT = "worklog-theme-change";
 
 // The theme actually on screen: the saved choice, else the device setting.
 function currentTheme() {
@@ -11,16 +12,20 @@ function currentTheme() {
   return window.matchMedia(darkQuery).matches ? "dark" : "light";
 }
 
-export default function ThemeToggle() {
-  const [theme, setTheme] = useState(currentTheme);
+// Re-render when the device setting changes or the toggle is used.
+function subscribe(onChange) {
+  const media = window.matchMedia(darkQuery);
+  media.addEventListener("change", onChange);
+  window.addEventListener(CHANGE_EVENT, onChange);
+  return () => {
+    media.removeEventListener("change", onChange);
+    window.removeEventListener(CHANGE_EVENT, onChange);
+  };
+}
 
-  // Keep the icon in sync if the device setting changes and no choice is saved.
-  useEffect(() => {
-    const media = window.matchMedia(darkQuery);
-    const onChange = () => setTheme(currentTheme());
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, []);
+export default function ThemeToggle() {
+  // Pre-rendered HTML assumes light; the real theme is picked up on hydration.
+  const theme = useSyncExternalStore(subscribe, currentTheme, () => "light");
 
   const toggle = () => {
     const next = theme === "dark" ? "light" : "dark";
@@ -30,7 +35,7 @@ export default function ThemeToggle() {
     } catch {
       // Storage blocked; the choice still applies for this visit.
     }
-    setTheme(next);
+    window.dispatchEvent(new Event(CHANGE_EVENT));
   };
 
   const isDark = theme === "dark";
