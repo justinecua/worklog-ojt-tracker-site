@@ -4,7 +4,6 @@ import Features from "../components/Features";
 import HowItWorks from "../components/HowItWorks";
 import VideoSection from "../components/VideoSection";
 import FAQ from "../components/FAQ";
-import CTASection from "../components/CTASection";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
         <HowItWorks />
         <VideoSection />
         <FAQ />
-        <CTASection />
       </main>
       <Footer />
     </div>
